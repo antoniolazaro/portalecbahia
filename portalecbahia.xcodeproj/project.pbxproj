@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB4FE489165D9948009DEA4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE488165D9948009DEA4F /* UIKit.framework */; };
+		AB4FE48B165D9948009DEA4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE48A165D9948009DEA4F /* Foundation.framework */; };
+		AB4FE48D165D9948009DEA4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE48C165D9948009DEA4F /* CoreGraphics.framework */; };
+		AB4FE493165D9948009DEA4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE491165D9948009DEA4F /* InfoPlist.strings */; };
+		AB4FE495165D9948009DEA4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4FE494165D9948009DEA4F /* main.m */; };
+		AB4FE499165D9949009DEA4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4FE498165D9949009DEA4F /* AppDelegate.m */; };
+		AB4FE49B165D9949009DEA4F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE49A165D9949009DEA4F /* Default.png */; };
+		AB4FE49D165D9949009DEA4F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE49C165D9949009DEA4F /* Default@2x.png */; };
+		AB4FE49F165D9949009DEA4F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE49E165D9949009DEA4F /* Default-568h@2x.png */; };
+		AB4FE4A2165D9949009DEA4F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4A0165D9949009DEA4F /* MainStoryboard.storyboard */; };
+		AB4FE4A5165D9949009DEA4F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4FE4A4165D9949009DEA4F /* FirstViewController.m */; };
+		AB4FE4A7165D9949009DEA4F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4A6165D9949009DEA4F /* first.png */; };
+		AB4FE4A9165D9949009DEA4F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4A8165D9949009DEA4F /* first@2x.png */; };
+		AB4FE4AC165D9949009DEA4F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4FE4AB165D9949009DEA4F /* SecondViewController.m */; };
+		AB4FE4AE165D9949009DEA4F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4AD165D9949009DEA4F /* second.png */; };
+		AB4FE4B0165D9949009DEA4F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4AF165D9949009DEA4F /* second@2x.png */; };
+		AB4FE4B8165D9949009DEA4F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE4B7165D9949009DEA4F /* SenTestingKit.framework */; };
+		AB4FE4B9165D9949009DEA4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE488165D9948009DEA4F /* UIKit.framework */; };
+		AB4FE4BA165D9949009DEA4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE48A165D9948009DEA4F /* Foundation.framework */; };
+		AB4FE4C2165D9949009DEA4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB4FE4C0165D9949009DEA4F /* InfoPlist.strings */; };
+		AB4FE4C5165D9949009DEA4F /* portalecbahiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4FE4C4165D9949009DEA4F /* portalecbahiaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB4FE4BB165D9949009DEA4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB4FE47B165D9948009DEA4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB4FE483165D9948009DEA4F;
+			remoteInfo = portalecbahia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AB4FE484165D9948009DEA4F /* portalecbahia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = portalecbahia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4FE488165D9948009DEA4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AB4FE48A165D9948009DEA4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AB4FE48C165D9948009DEA4F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AB4FE490165D9948009DEA4F /* portalecbahia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "portalecbahia-Info.plist"; sourceTree = "<group>"; };
+		AB4FE492165D9948009DEA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB4FE494165D9948009DEA4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB4FE496165D9949009DEA4F /* portalecbahia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "portalecbahia-Prefix.pch"; sourceTree = "<group>"; };
+		AB4FE497165D9949009DEA4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB4FE498165D9949009DEA4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB4FE49A165D9949009DEA4F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AB4FE49C165D9949009DEA4F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AB4FE49E165D9949009DEA4F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AB4FE4A1165D9949009DEA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		AB4FE4A3165D9949009DEA4F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		AB4FE4A4165D9949009DEA4F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		AB4FE4A6165D9949009DEA4F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		AB4FE4A8165D9949009DEA4F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		AB4FE4AA165D9949009DEA4F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		AB4FE4AB165D9949009DEA4F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		AB4FE4AD165D9949009DEA4F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		AB4FE4AF165D9949009DEA4F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		AB4FE4B6165D9949009DEA4F /* portalecbahiaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = portalecbahiaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4FE4B7165D9949009DEA4F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AB4FE4BF165D9949009DEA4F /* portalecbahiaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "portalecbahiaTests-Info.plist"; sourceTree = "<group>"; };
+		AB4FE4C1165D9949009DEA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB4FE4C3165D9949009DEA4F /* portalecbahiaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = portalecbahiaTests.h; sourceTree = "<group>"; };
+		AB4FE4C4165D9949009DEA4F /* portalecbahiaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = portalecbahiaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB4FE481165D9948009DEA4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE489165D9948009DEA4F /* UIKit.framework in Frameworks */,
+				AB4FE48B165D9948009DEA4F /* Foundation.framework in Frameworks */,
+				AB4FE48D165D9948009DEA4F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4FE4B2165D9949009DEA4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE4B8165D9949009DEA4F /* SenTestingKit.framework in Frameworks */,
+				AB4FE4B9165D9949009DEA4F /* UIKit.framework in Frameworks */,
+				AB4FE4BA165D9949009DEA4F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB4FE479165D9948009DEA4F = {
+			isa = PBXGroup;
+			children = (
+				AB4FE48E165D9948009DEA4F /* portalecbahia */,
+				AB4FE4BD165D9949009DEA4F /* portalecbahiaTests */,
+				AB4FE487165D9948009DEA4F /* Frameworks */,
+				AB4FE485165D9948009DEA4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB4FE485165D9948009DEA4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE484165D9948009DEA4F /* portalecbahia.app */,
+				AB4FE4B6165D9949009DEA4F /* portalecbahiaTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB4FE487165D9948009DEA4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE488165D9948009DEA4F /* UIKit.framework */,
+				AB4FE48A165D9948009DEA4F /* Foundation.framework */,
+				AB4FE48C165D9948009DEA4F /* CoreGraphics.framework */,
+				AB4FE4B7165D9949009DEA4F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB4FE48E165D9948009DEA4F /* portalecbahia */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE497165D9949009DEA4F /* AppDelegate.h */,
+				AB4FE498165D9949009DEA4F /* AppDelegate.m */,
+				AB4FE4A0165D9949009DEA4F /* MainStoryboard.storyboard */,
+				AB4FE4A3165D9949009DEA4F /* FirstViewController.h */,
+				AB4FE4A4165D9949009DEA4F /* FirstViewController.m */,
+				AB4FE4A6165D9949009DEA4F /* first.png */,
+				AB4FE4A8165D9949009DEA4F /* first@2x.png */,
+				AB4FE4AA165D9949009DEA4F /* SecondViewController.h */,
+				AB4FE4AB165D9949009DEA4F /* SecondViewController.m */,
+				AB4FE4AD165D9949009DEA4F /* second.png */,
+				AB4FE4AF165D9949009DEA4F /* second@2x.png */,
+				AB4FE48F165D9948009DEA4F /* Supporting Files */,
+			);
+			path = portalecbahia;
+			sourceTree = "<group>";
+		};
+		AB4FE48F165D9948009DEA4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE490165D9948009DEA4F /* portalecbahia-Info.plist */,
+				AB4FE491165D9948009DEA4F /* InfoPlist.strings */,
+				AB4FE494165D9948009DEA4F /* main.m */,
+				AB4FE496165D9949009DEA4F /* portalecbahia-Prefix.pch */,
+				AB4FE49A165D9949009DEA4F /* Default.png */,
+				AB4FE49C165D9949009DEA4F /* Default@2x.png */,
+				AB4FE49E165D9949009DEA4F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB4FE4BD165D9949009DEA4F /* portalecbahiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE4C3165D9949009DEA4F /* portalecbahiaTests.h */,
+				AB4FE4C4165D9949009DEA4F /* portalecbahiaTests.m */,
+				AB4FE4BE165D9949009DEA4F /* Supporting Files */,
+			);
+			path = portalecbahiaTests;
+			sourceTree = "<group>";
+		};
+		AB4FE4BE165D9949009DEA4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB4FE4BF165D9949009DEA4F /* portalecbahiaTests-Info.plist */,
+				AB4FE4C0165D9949009DEA4F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB4FE483165D9948009DEA4F /* portalecbahia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB4FE4C8165D9949009DEA4F /* Build configuration list for PBXNativeTarget "portalecbahia" */;
+			buildPhases = (
+				AB4FE480165D9948009DEA4F /* Sources */,
+				AB4FE481165D9948009DEA4F /* Frameworks */,
+				AB4FE482165D9948009DEA4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = portalecbahia;
+			productName = portalecbahia;
+			productReference = AB4FE484165D9948009DEA4F /* portalecbahia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB4FE4B5165D9949009DEA4F /* portalecbahiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB4FE4CB165D9949009DEA4F /* Build configuration list for PBXNativeTarget "portalecbahiaTests" */;
+			buildPhases = (
+				AB4FE4B1165D9949009DEA4F /* Sources */,
+				AB4FE4B2165D9949009DEA4F /* Frameworks */,
+				AB4FE4B3165D9949009DEA4F /* Resources */,
+				AB4FE4B4165D9949009DEA4F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB4FE4BC165D9949009DEA4F /* PBXTargetDependency */,
+			);
+			name = portalecbahiaTests;
+			productName = portalecbahiaTests;
+			productReference = AB4FE4B6165D9949009DEA4F /* portalecbahiaTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB4FE47B165D9948009DEA4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Antonio Lazaro Carvalho Borges";
+			};
+			buildConfigurationList = AB4FE47E165D9948009DEA4F /* Build configuration list for PBXProject "portalecbahia" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AB4FE479165D9948009DEA4F;
+			productRefGroup = AB4FE485165D9948009DEA4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB4FE483165D9948009DEA4F /* portalecbahia */,
+				AB4FE4B5165D9949009DEA4F /* portalecbahiaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB4FE482165D9948009DEA4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE493165D9948009DEA4F /* InfoPlist.strings in Resources */,
+				AB4FE49B165D9949009DEA4F /* Default.png in Resources */,
+				AB4FE49D165D9949009DEA4F /* Default@2x.png in Resources */,
+				AB4FE49F165D9949009DEA4F /* Default-568h@2x.png in Resources */,
+				AB4FE4A2165D9949009DEA4F /* MainStoryboard.storyboard in Resources */,
+				AB4FE4A7165D9949009DEA4F /* first.png in Resources */,
+				AB4FE4A9165D9949009DEA4F /* first@2x.png in Resources */,
+				AB4FE4AE165D9949009DEA4F /* second.png in Resources */,
+				AB4FE4B0165D9949009DEA4F /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4FE4B3165D9949009DEA4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE4C2165D9949009DEA4F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB4FE4B4165D9949009DEA4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB4FE480165D9948009DEA4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE495165D9948009DEA4F /* main.m in Sources */,
+				AB4FE499165D9949009DEA4F /* AppDelegate.m in Sources */,
+				AB4FE4A5165D9949009DEA4F /* FirstViewController.m in Sources */,
+				AB4FE4AC165D9949009DEA4F /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4FE4B1165D9949009DEA4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FE4C5165D9949009DEA4F /* portalecbahiaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB4FE4BC165D9949009DEA4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB4FE483165D9948009DEA4F /* portalecbahia */;
+			targetProxy = AB4FE4BB165D9949009DEA4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB4FE491165D9948009DEA4F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4FE492165D9948009DEA4F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB4FE4A0165D9949009DEA4F /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4FE4A1165D9949009DEA4F /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		AB4FE4C0165D9949009DEA4F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4FE4C1165D9949009DEA4F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB4FE4C6165D9949009DEA4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AB4FE4C7165D9949009DEA4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB4FE4C9165D9949009DEA4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "portalecbahia/portalecbahia-Prefix.pch";
+				INFOPLIST_FILE = "portalecbahia/portalecbahia-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AB4FE4CA165D9949009DEA4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "portalecbahia/portalecbahia-Prefix.pch";
+				INFOPLIST_FILE = "portalecbahia/portalecbahia-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AB4FE4CC165D9949009DEA4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/portalecbahia.app/portalecbahia";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "portalecbahia/portalecbahia-Prefix.pch";
+				INFOPLIST_FILE = "portalecbahiaTests/portalecbahiaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AB4FE4CD165D9949009DEA4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/portalecbahia.app/portalecbahia";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "portalecbahia/portalecbahia-Prefix.pch";
+				INFOPLIST_FILE = "portalecbahiaTests/portalecbahiaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB4FE47E165D9948009DEA4F /* Build configuration list for PBXProject "portalecbahia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB4FE4C6165D9949009DEA4F /* Debug */,
+				AB4FE4C7165D9949009DEA4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB4FE4C8165D9949009DEA4F /* Build configuration list for PBXNativeTarget "portalecbahia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB4FE4C9165D9949009DEA4F /* Debug */,
+				AB4FE4CA165D9949009DEA4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AB4FE4CB165D9949009DEA4F /* Build configuration list for PBXNativeTarget "portalecbahiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB4FE4CC165D9949009DEA4F /* Debug */,
+				AB4FE4CD165D9949009DEA4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB4FE47B165D9948009DEA4F /* Project object */;
+}
