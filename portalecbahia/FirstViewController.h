@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UITableViewDataSource>{
+    NSData *conteudoNews;
+    IBOutlet UITableView *newTableView;
+    NSMutableArray *listOfItems;
+}
 
 @end
