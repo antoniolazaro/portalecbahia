@@ -29,13 +29,11 @@
     NSError *e = nil;
     NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData: conteudoNews options: NSJSONReadingMutableContainers error: &e];
     
-    NSLog(@"%@",jsonArray);
     NSLog(@"#########################");
     
-    NSArray *tweet = [jsonArray objectForKey:@"data"];
-    for(NSDictionary * myStr in tweet) {
-        NSLog(@"%@",myStr);
-        
+    for(NSDictionary * myStr in jsonArray) {
+        NSString *value = myStr[@"date"];
+        NSLog(@"%@",value);
         [listOfItems addObject:myStr];
     }
 }
@@ -44,34 +42,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [listOfItems count];
-}
-
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
-    }
-    
-    NSDictionary *myStr = [listOfItems objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [myStr objectForKey:@"title"];
-    
-    NSURL *url = [NSURL URLWithString:[myStr objectForKey:@"urlImage"]];
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-    UIImage *image = [[UIImage alloc] initWithData:data];
-    cell.imageView.image = image;
-
-    
-    return cell;
 }
 
 @end
