@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController{
-    NSData *conteudoNews;
-    NSMutableArray *listOfItems;
+@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSDictionary *news;
 }
+
+@property (strong, nonatomic) IBOutlet UITableView *tableNews;
+
+- (void)fetchNews;
 
 @end
