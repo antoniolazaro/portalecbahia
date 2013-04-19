@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "NewDetailViewController.h"
 
 @interface FirstViewController ()
 
@@ -30,6 +31,8 @@
 
 - (void)fetchNews
 {
+   
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData* data = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString: @"http://ec2-54-243-134-2.compute-1.amazonaws.com:8080/portalECBahia/FindAllNews"]];
@@ -45,6 +48,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableNews reloadData];
         });
+        
     });
 }
 
@@ -52,43 +56,25 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"quantidade de noticias...%d",news.count);
-    return news.count;
+    return news.count-1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 75;
+    if(indexPath.row != 0){
+        return 75;
+    }else{
+        return 200;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = NULL;
-    
-    
-    
-//    if(indexPath.row == 0){
-//        static NSString *CellIdentifier = @"PrincipalNewsCell";
-//        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        }
-//        
-//        NSDictionary *new = [contentNew objectAtIndex:indexPath.row];
-//        cell.textLabel.text = [new objectForKey:@"title"];
-//        
-//        NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
-//        NSData *data = [NSData dataWithContentsOfURL:url];
-//        UIImage *image = [[UIImage alloc] initWithData:data];
-//        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-//        cell.imageView.image = imageView.image;
-//    }else{
     
         static NSString *CellIdentifier = @"NewsCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-    
-        cell.frame = CGRectMake(0,0,300,600);
     
         NSDictionary *new = [news objectAtIndex:indexPath.row];
         NSString *dateString = [new objectForKey:@"date"];
@@ -109,24 +95,45 @@
         NSLog(@"%d",indexPath.row);
     
     
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         cell.detailTextLabel.text = [new objectForKey:@"title"];
         cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:12];
         NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [[UIImage alloc] initWithData:data];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-        CGSize itemSize = CGSizeMake(75, 75);
+        
+        CGSize itemSize;
+        if(indexPath.row != 0){
+            itemSize = CGSizeMake(75, 75);
+        }else{
+            itemSize = CGSizeMake(200,300);
+        }
         UIGraphicsBeginImageContext(itemSize);
         CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
         [imageView.image drawInRect:imageRect];
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-    
+       });
 //    }
     
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"segueNewDetail"]) {
+        
+        NSInteger row = [[self tableNews].indexPathForSelectedRow row];
+        
+        NSDictionary *new = [news objectAtIndex:row];
+        
+        NewDetailViewController *newDetailViewController = segue.destinationViewController;
+        newDetailViewController.detailItem = new;
+
+    }
 }
 
 

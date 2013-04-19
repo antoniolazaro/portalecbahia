@@ -13,7 +13,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableNews;
-@property (strong, nonatomic) IBOutlet UIWebView *imageNewPrincipal;
 
 - (void)fetchNews;
 

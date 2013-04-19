@@ -34,6 +34,7 @@
 		ABE654ED16A4E95C006339C6 /* icon_tab_more.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE654E716A4E95C006339C6 /* icon_tab_more.png */; };
 		ABE654EE16A4E95C006339C6 /* icon_tab_news.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE654E816A4E95C006339C6 /* icon_tab_news.png */; };
 		ABE654EF16A4E95C006339C6 /* img_top_bar2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE654E916A4E95C006339C6 /* img_top_bar2.png */; };
+		ABFB85B71720F88C003CE5AD /* NewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFB85B61720F88C003CE5AD /* NewDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		ABE654E716A4E95C006339C6 /* icon_tab_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_more.png; path = "imagens/drawable-hdpi/icon_tab_more.png"; sourceTree = SOURCE_ROOT; };
 		ABE654E816A4E95C006339C6 /* icon_tab_news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tab_news.png; path = "imagens/drawable-hdpi/icon_tab_news.png"; sourceTree = SOURCE_ROOT; };
 		ABE654E916A4E95C006339C6 /* img_top_bar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_top_bar2.png; path = "imagens/drawable-hdpi/img_top_bar2.png"; sourceTree = SOURCE_ROOT; };
+		ABFB85B51720F88C003CE5AD /* NewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDetailViewController.h; sourceTree = "<group>"; };
+		ABFB85B61720F88C003CE5AD /* NewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				AB4FE497165D9949009DEA4F /* AppDelegate.h */,
 				AB4FE498165D9949009DEA4F /* AppDelegate.m */,
 				AB4FE4A0165D9949009DEA4F /* MainStoryboard.storyboard */,
+				ABFB85B51720F88C003CE5AD /* NewDetailViewController.h */,
+				ABFB85B61720F88C003CE5AD /* NewDetailViewController.m */,
 				AB4FE4A3165D9949009DEA4F /* FirstViewController.h */,
 				AB4FE4A4165D9949009DEA4F /* FirstViewController.m */,
 				AB4FE4A6165D9949009DEA4F /* first.png */,
@@ -327,6 +332,7 @@
 				AB4FE499165D9949009DEA4F /* AppDelegate.m in Sources */,
 				AB4FE4A5165D9949009DEA4F /* FirstViewController.m in Sources */,
 				AB4FE4AC165D9949009DEA4F /* SecondViewController.m in Sources */,
+				ABFB85B71720F88C003CE5AD /* NewDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
