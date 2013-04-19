@@ -21,30 +21,15 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-ql-QCY">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="303" id="ifJ-rF-J8P"/>
+                                    <constraint firstAttribute="width" constant="306" id="A9a-xj-DYd"/>
+                                    <constraint firstAttribute="height" constant="296" id="fgk-GN-2rb"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PrincipalNewsCell" textLabel="VFb-Au-mpa" rowHeight="267" style="IBUITableViewCellStyleDefault" id="Ibe-Hd-aD3">
-                                        <rect key="frame" x="0.0" y="22" width="303" height="267"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="19" reuseIdentifier="NewsCell" textLabel="pG8-YB-QX7" detailTextLabel="fPx-A0-WWa" style="IBUITableViewCellStyleSubtitle" id="Bte-Ep-iCa">
+                                        <rect key="frame" x="0.0" y="22" width="306" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="266"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFb-Au-mpa">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="NewsCell" textLabel="pG8-YB-QX7" detailTextLabel="fPx-A0-WWa" style="IBUITableViewCellStyleSubtitle" id="Bte-Ep-iCa">
-                                        <rect key="frame" x="0.0" y="289" width="303" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="306" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pG8-YB-QX7">
@@ -65,18 +50,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bng-C6-IIB">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="323" id="8fL-i3-O4J"/>
+                                    <constraint firstAttribute="height" constant="124" id="pDo-AZ-gDw"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FTV-ql-QCY" firstAttribute="top" secondItem="SI8-ET-GQI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2sT-j1-dNa"/>
                             <constraint firstItem="SI8-ET-GQI" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="7eC-wf-y7P"/>
-                            <constraint firstItem="SI8-ET-GQI" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="-3" id="EFP-Mc-1Q7"/>
                             <constraint firstItem="FTV-ql-QCY" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="JHS-gb-aSI"/>
                             <constraint firstItem="FTV-ql-QCY" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="2" id="RWr-kt-3lu"/>
+                            <constraint firstItem="bng-C6-IIB" firstAttribute="leading" secondItem="SI8-ET-GQI" secondAttribute="leading" type="default" id="q5z-Vk-SH4"/>
+                            <constraint firstItem="bng-C6-IIB" firstAttribute="top" secondItem="16" secondAttribute="top" constant="78" id="rxO-3V-iEe"/>
+                            <constraint firstItem="bng-C6-IIB" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="uBc-0J-IBp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notícias" image="icon_tab_news.png" id="7"/>
                     <connections>
+                        <outlet property="imageNewPrincipal" destination="bng-C6-IIB" id="t2f-XA-BOP"/>
                         <outlet property="tableNews" destination="FTV-ql-QCY" id="yhO-Ko-mc7"/>
                     </connections>
                 </viewController>
@@ -202,6 +196,7 @@
         <class className="FirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="imageNewPrincipal" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="tableNews" candidateClass="UITableView"/>
             </relationships>
         </class>

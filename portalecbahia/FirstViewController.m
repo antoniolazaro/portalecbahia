@@ -36,9 +36,11 @@
         
         NSError* error;
         
-        news = [NSJSONSerialization JSONObjectWithData:data
+        NSDictionary *newsDicctionary = [NSJSONSerialization JSONObjectWithData:data
                                                  options:kNilOptions
                                                    error:&error];
+        
+        news = [newsDicctionary objectForKey:@"data"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableNews reloadData];
@@ -46,9 +48,15 @@
     });
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"quantidade de noticias...%d",news.count);
     return news.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 75;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,55 +64,66 @@
     UITableViewCell *cell = NULL;
     
     
-    if(indexPath.row == 0){
-        static NSString *CellIdentifier = @"PrincipalNewsCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-       
-        
-        NSArray *name = [news objectForKey:@"data"];
-        
-        if([name count] > 0){
-            NSDictionary *new = [name objectAtIndex:indexPath.row];
-            cell.textLabel.text = [new objectForKey:@"title"];
-            
-            NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [[UIImage alloc] initWithData:data];
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            cell.imageView.image = imageView.image;
-        }
-    }
-    else{
+    
+//    if(indexPath.row == 0){
+//        static NSString *CellIdentifier = @"PrincipalNewsCell";
+//        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        }
+//        
+//        NSDictionary *new = [contentNew objectAtIndex:indexPath.row];
+//        cell.textLabel.text = [new objectForKey:@"title"];
+//        
+//        NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
+//        NSData *data = [NSData dataWithContentsOfURL:url];
+//        UIImage *image = [[UIImage alloc] initWithData:data];
+//        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//        cell.imageView.image = imageView.image;
+//    }else{
+    
         static NSString *CellIdentifier = @"NewsCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        
-        NSArray *name = [news objectForKey:@"data"];
     
-        if([name count] > 0){
-            NSDictionary *new = [name objectAtIndex:indexPath.row];
-            NSString *dateString = [new objectForKey:@"date"];
-            
-            NSDateFormatter *format = [[NSDateFormatter alloc] init];
-            [format setDateStyle:NSDateFormatterLongStyle];
-            [format setTimeStyle:NSDateFormatterNoStyle];
-            NSDate *dataFormatada = [format dateFromString:dateString];
-            cell.textLabel.text = dateString;
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
-            
-            cell.detailTextLabel.text = [new objectForKey:@"title"];
-            NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [[UIImage alloc] initWithData:data];
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            cell.imageView.image = imageView.image;
-        }
-    }
+        cell.frame = CGRectMake(0,0,300,600);
+    
+        NSDictionary *new = [news objectAtIndex:indexPath.row];
+        NSString *dateString = [new objectForKey:@"date"];
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyy-MM-dd hh:mm"];
+        NSDate *dataFormatada = [format dateFromString:dateString];
+        
+        [format setDateStyle:NSDateFormatterLongStyle];
+        [format setTimeStyle:NSDateFormatterShortStyle];
+        dateString = [format stringFromDate:dataFormatada];
+        
+        
+        cell.textLabel.text = dateString;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:10];
+    
+        NSLog(@"%@",[new objectForKey:@"title"]);
+        NSLog(@"%d",indexPath.row);
+    
+    
+        cell.detailTextLabel.text = [new objectForKey:@"title"];
+        cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:12];
+        NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [[UIImage alloc] initWithData:data];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+        CGSize itemSize = CGSizeMake(75, 75);
+        UIGraphicsBeginImageContext(itemSize);
+        CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+        [imageView.image drawInRect:imageRect];
+        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    
+//    }
     
     
     return cell;

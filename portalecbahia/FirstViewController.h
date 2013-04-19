@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSDictionary *news;
+    NSArray *news;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableNews;
+@property (strong, nonatomic) IBOutlet UIWebView *imageNewPrincipal;
 
 - (void)fetchNews;
 
