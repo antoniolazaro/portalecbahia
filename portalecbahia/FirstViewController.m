@@ -80,7 +80,7 @@
         NSString *dateString = [new objectForKey:@"date"];
         
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"yyyy-MM-dd hh:mm"];
+        [format setDateFormat:@"yyyy-MM-dd HH:mm"];
         NSDate *dataFormatada = [format dateFromString:dateString];
         
         [format setDateStyle:NSDateFormatterLongStyle];

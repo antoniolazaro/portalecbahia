@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewDetailViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UIImageView *imageViewDetail;
-@property (strong, nonatomic) IBOutlet UILabel *labelDataDetail;
-@property (strong, nonatomic) IBOutlet UILabel *labelTituloDetail;
-@property (strong, nonatomic) IBOutlet UITextView *contentNewDetail;
+@interface NewDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet NSDictionary *detailItem;
+@property (strong, nonatomic) IBOutlet UIImageView *imageNewDetail;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewDetail;
 
 @end

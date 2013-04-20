@@ -29,7 +29,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.tableViewDetail.dataSource = self;
+    self.tableViewDetail.delegate = self;
+    [self.tableViewDetail reloadData];
     [self configureView];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,40 +42,82 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)configureView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.detailItem) {
-        NSDictionary *new = self.detailItem;
-        
-        NSString *dateString = [new objectForKey:@"date"];
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == 0){
+        return 75;
+    }else{
+        return 200;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = NULL;
+    
+    
+    if(indexPath.row == 0){
+        static NSString *CellIdentifier = @"NewsDetail";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        NSString *dateString = [detailItem objectForKey:@"date"];
         
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"yyyy-MM-dd hh:mm"];
+        [format setDateFormat:@"yyyy-MM-dd HH:mm"];
         NSDate *dataFormatada = [format dateFromString:dateString];
         
         [format setDateStyle:NSDateFormatterLongStyle];
         [format setTimeStyle:NSDateFormatterShortStyle];
         dateString = [format stringFromDate:dataFormatada];
         
-        self.labelDataDetail.text = dateString;
-        self.labelDataDetail.font = [UIFont boldSystemFontOfSize:10];
         
-        self.labelTituloDetail.text = [new objectForKey:@"title"];
-        self.labelTituloDetail.font = [UIFont boldSystemFontOfSize:10];
+        cell.textLabel.text = dateString;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:10];
         
-      //  self.imageViewDetail = imageSelected;
+        cell.detailTextLabel.text = [detailItem objectForKey:@"title"];
+        cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:12];
         
-        self.contentNewDetail.text = [new objectForKey:@"content"];
-        self.contentNewDetail.font = [UIFont boldSystemFontOfSize:10];
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//            NSString *imageUrl = [[tweet objectForKey:@"user"] objectForKey:@"profile_image_url"];
-//            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                profileImage.image = [UIImage imageWithData:data];
-//            });
-//        });
+    }else{
+        static NSString *CellIdentifier = @"ContentDetail";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        NSString *htmlString= [detailItem objectForKey:@"content"];
+        //[cell.textLabel setValue: htmlString forKey:@"contentToHTMLString"];
+        cell.textLabel.text = htmlString;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+    }
+    return cell;
+}
+
+- (void)configureView
+{
+    if (self.detailItem) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURL *url = [NSURL URLWithString:[detailItem objectForKey:@"urlImage"]];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [[UIImage alloc] initWithData:data];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            
+            CGSize itemSize;
+            itemSize = CGSizeMake(200,300);
+            UIGraphicsBeginImageContext(itemSize);
+            CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+            [imageView.image drawInRect:imageRect];
+            self.imageNewDetail.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        });
     }
 }
+
 
 @end
