@@ -1,4 +1,4 @@
-//
+ //
 //  FirstViewController.m
 //  portalecbahia
 //
@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "NewDetailViewController.h"
+#import "AFJSONRequestOperation.h"
 
 @interface FirstViewController ()
 
@@ -42,7 +43,7 @@
         NSDictionary *newsDicctionary = [NSJSONSerialization JSONObjectWithData:data
                                                  options:kNilOptions
                                                    error:&error];
-        
+    
         news = [newsDicctionary objectForKey:@"data"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
