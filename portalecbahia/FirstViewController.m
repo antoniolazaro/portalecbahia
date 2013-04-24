@@ -32,8 +32,8 @@
 - (void)fetchNews
 {
    
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         NSData* data = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString: @"http://ec2-54-243-134-2.compute-1.amazonaws.com:8080/portalECBahia/FindAllNews"]];
         
