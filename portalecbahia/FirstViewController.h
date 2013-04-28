@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *news;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableNews;
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *newsDB;
 
 - (void)fetchNews;
 
