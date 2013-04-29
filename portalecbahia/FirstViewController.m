@@ -54,7 +54,7 @@
         
         if (sqlite3_open(dbpath, &_newsDB) == SQLITE_OK)
         {
-            [self database:_newsDB createTable:"CREATE TABLE IF NOT EXISTS tbl_news (ID INTEGER NOT NULL ,position INTEGER NOT NULL  PRIMARY KEY,title VARCHAR,urlImage VARCHAR,date DATETIME,content VARCHAR,urlWebSite VARCHAR)"];
+            [self database:_newsDB createTable:"CREATE TABLE IF NOT EXISTS tbl_news (ID INTEGER NOT NULL PRIMARY KEY,position INTEGER NOT NULL  ,title VARCHAR,urlImage VARCHAR,date DATETIME,content VARCHAR,urlWebSite VARCHAR)"];
             
             [self database:_newsDB createTable:"CREATE TABLE IF NOT EXISTS tbl_media (ID INTEGER PRIMARY KEY  NOT NULL ,title VARCHAR,urlImage VARCHAR,time VARCHAR,date DATETIME,urlMedia VARCHAR,typeID INTEGER)"];
             
@@ -104,27 +104,88 @@
             
             NSLog(@"Vai salvar a noticia %@ ",[new objectForKey:@"title"]);
             
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"yyyy-MM-dd HH:mm"];
+            NSDate *dataFormatada = [format dateFromString:[new objectForKey:@"date"]];
+            
             NSString *insertSQL = [NSString stringWithFormat:
-                                   @"INSERT INTO tbl_news (ID,  title, urlImage, date, content, urlWebSite)  VALUES (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\", \"%@\")",
-                                   [new objectForKey:@"id"],//int
-                                   [new objectForKey:@"title"],//varchar
-                                   [new objectForKey:@"urlImage"],//varchar
-                                   [new objectForKey:@"date"],//datetime
-                                   [new objectForKey:@"content"],//varchar
-                                   [new objectForKey:@"urlWebSite"]];//varchar
+                                   @"INSERT INTO tbl_news (ID,position,  title, urlImage, date, content, urlWebSite)  VALUES (%d,%d,'%s','%s','%@','%s','%s')",
+                                   [[new objectForKey:@"id"] intValue],//int
+                                   [[new objectForKey:@"position"] intValue],//int
+                                   [[[new objectForKey:@"title"] description] UTF8String],//varchar
+                                   [[[new objectForKey:@"urlImage"]description]UTF8String],//varchar
+                                   dataFormatada,//datetime
+                                   [[[new objectForKey:@"content"]description]UTF8String],//varchar
+                                   [[[new objectForKey:@"urlWebSite"]description]UTF8String]];//varchar
             
             const char *insert_stmt = [insertSQL UTF8String];
             sqlite3_prepare_v2(_newsDB, insert_stmt,
                                -1, &statement, NULL);
-            if (sqlite3_step(statement) == SQLITE_DONE){
+            
+            int retornoOperacao = sqlite3_step(statement);
+            if (retornoOperacao == SQLITE_DONE){
                 NSLog(@"Noticia adicionada com sucesso.");
             }else {
-                NSLog(@"Erro ao adicionar noticia");
+                NSLog(@"%s",sqlite3_errmsg(_newsDB));
+                NSLog(@"Codigo do erro ao adicionar noticia %d ",retornoOperacao);
             }
         }
         sqlite3_finalize(statement);
         sqlite3_close(_newsDB);
     }
+}
+
+-(NSArray *) findNews{
+    
+    sqlite3_stmt *statement = nil;
+    const char *sql = [@"SELECT position, ID,title,urlImage,date,content,urlWebSite FROM tbl_news order by date desc limit 0,20" UTF8String];
+    
+    const char *dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_newsDB) == SQLITE_OK){
+        
+        int retornoConexao = sqlite3_prepare_v2(_newsDB, sql, -1, &statement, NULL);
+        
+        if (retornoConexao != SQLITE_OK) {
+            NSLog(@"%s",sqlite3_errmsg(_newsDB));
+            NSLog(@"[SQLITE] Error preparando consulta de news! %d",retornoConexao);
+        } else {
+            NSMutableArray *result = [NSMutableArray array];
+            
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
+                
+                for (int i=0; i<sqlite3_column_count(statement); i++) {
+                    
+                    int colType = sqlite3_column_type(statement, i);
+                    char *colName = (char *) sqlite3_column_name(statement, i);
+                    
+                    id value;
+                    
+                    if (colType == SQLITE_TEXT) {
+                        const unsigned char *col = sqlite3_column_text(statement, i);
+                        value = [NSString stringWithUTF8String:(char *)col];
+                    } else if (colType == SQLITE_INTEGER) {
+                        int col = sqlite3_column_int(statement, i);
+                        value = [NSNumber numberWithInt:col];
+                    } else if (colType == SQLITE_FLOAT) {
+                        double col = sqlite3_column_double(statement, i);
+                        value = [NSNumber numberWithDouble:col];
+                    } else if (colType == SQLITE_NULL) {
+                        value = [NSNull null];
+                    } else {
+                        NSLog(@"[SQLITE] UNKNOWN DATATYPE");
+                    }
+                    
+                    [row setObject:value forKey:[NSString stringWithUTF8String:colName]];
+                }
+                [result addObject:row];
+            }
+            return result;
+        }
+    }
+    return nil;
 }
 
 
@@ -148,57 +209,12 @@
         [self saveNews];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            news = [self findNews];
             [self.tableNews reloadData];
         });
         
     });
 }
 
--(NSArray *) findNews{
-    
-    sqlite3_stmt *statement = nil;
-    const char *sql = [@"SELECT position, ID,title,urlImage,date,content,urlWebSite FROM tbl_news by date desc limit 0,20" UTF8String];
-    
-    if (sqlite3_prepare_v2(_newsDB, sql, -1, &statement, NULL) != SQLITE_OK) {
-        NSLog(@"[SQLITE] Error preparando consulta de news!");
-    } else {
-        NSMutableArray *result = [NSMutableArray array];
-        
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            
-            NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
-            
-            for (int i=0; i<sqlite3_column_count(statement); i++) {
-                
-                int colType = sqlite3_column_type(statement, i);
-                char *colName = sqlite3_column_type(statement, i);
-                
-                id value;
-                
-                if (colType == SQLITE_TEXT) {
-                    const unsigned char *col = sqlite3_column_text(statement, i);
-                    value = [NSString stringWithFormat:@"%s", col];
-                } else if (colType == SQLITE_INTEGER) {
-                    int col = sqlite3_column_int(statement, i);
-                    value = [NSNumber numberWithInt:col];
-                } else if (colType == SQLITE_FLOAT) {
-                    double col = sqlite3_column_double(statement, i);
-                    value = [NSNumber numberWithDouble:col];
-                } else if (colType == SQLITE_NULL) {
-                    value = [NSNull null];
-                } else {
-                    NSLog(@"[SQLITE] UNKNOWN DATATYPE");
-                }
-                
-                [row setObject:value forKey:[NSString stringWithUTF8String:colName]];
-            }
-            [result addObject:row];
-        }
-        return result;
-    }
-    return nil;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -216,6 +232,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+        news = [self findNews];
     
         static NSString *CellIdentifier = @"NewsCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
