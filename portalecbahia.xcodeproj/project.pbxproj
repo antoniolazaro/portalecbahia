@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB175EB5172F685F006214BB /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB175EB4172F685F006214BB /* ImageDetailViewController.m */; };
 		AB4FE489165D9948009DEA4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE488165D9948009DEA4F /* UIKit.framework */; };
 		AB4FE48B165D9948009DEA4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE48A165D9948009DEA4F /* Foundation.framework */; };
 		AB4FE48D165D9948009DEA4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4FE48C165D9948009DEA4F /* CoreGraphics.framework */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB175EB3172F685F006214BB /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		AB175EB4172F685F006214BB /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 		AB4FE484165D9948009DEA4F /* portalecbahia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = portalecbahia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4FE488165D9948009DEA4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB4FE48A165D9948009DEA4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +196,8 @@
 				AB4FE4A0165D9949009DEA4F /* MainStoryboard.storyboard */,
 				ABFB85B51720F88C003CE5AD /* NewDetailViewController.h */,
 				ABFB85B61720F88C003CE5AD /* NewDetailViewController.m */,
+				AB175EB3172F685F006214BB /* ImageDetailViewController.h */,
+				AB175EB4172F685F006214BB /* ImageDetailViewController.m */,
 				AB4FE4A3165D9949009DEA4F /* FirstViewController.h */,
 				AB4FE4A4165D9949009DEA4F /* FirstViewController.m */,
 				AB4FE4A6165D9949009DEA4F /* first.png */,
@@ -417,6 +422,7 @@
 				AB97B8AC17277A18004BE722 /* AFURLConnectionOperation.m in Sources */,
 				AB97B8AD17277A18004BE722 /* AFXMLRequestOperation.m in Sources */,
 				AB97B8AE17277A18004BE722 /* UIImageView+AFNetworking.m in Sources */,
+				AB175EB5172F685F006214BB /* ImageDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

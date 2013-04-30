@@ -8,6 +8,7 @@
 
 #import "NewDetailViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "ImageDetailViewController.h"
 
 @interface NewDetailViewController ()
 
@@ -30,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    NSLog(@"Vai carregar tela de detalhamento %@",[detailItem objectForKey:@"title"]);
     
     [self configureView];
     self.tableViewDetail.dataSource = self;
@@ -118,6 +119,20 @@
             self.imageNewDetail.image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
         });
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Vai chamar segue do detalhamento de imagens");
+    
+    if ([segue.identifier isEqualToString:@"segueImageDetail"]) {
+        
+        NSString *urlImagem = [detailItem objectForKey:@"urlImage"];
+        
+        ImageDetailViewController *imageDetailViewController = segue.destinationViewController;
+        imageDetailViewController.imageNewDetailUrl = urlImagem;
+        
     }
 }
 

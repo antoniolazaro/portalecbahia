@@ -148,7 +148,7 @@
         int retornoConexao = sqlite3_prepare_v2(_newsDB, sql, -1, &statement, NULL);
         
         if (retornoConexao != SQLITE_OK) {
-            NSLog(@"%s",sqlite3_errmsg(_newsDB));
+            NSLog(@"erro na consulta %s",sqlite3_errmsg(_newsDB));
             NSLog(@"[SQLITE] Error preparando consulta de news! %d",retornoConexao);
         } else {
             NSMutableArray *result = [NSMutableArray array];
@@ -256,8 +256,8 @@
         cell.textLabel.text = dateString;
         cell.textLabel.font = [UIFont boldSystemFontOfSize:10];
     
-        NSLog(@"%@",[new objectForKey:@"title"]);
-        NSLog(@"%d",indexPath.row);
+        NSLog(@"titulo da noticia %@",[new objectForKey:@"title"]);
+        NSLog(@"indice da tabela %d",indexPath.row);
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
