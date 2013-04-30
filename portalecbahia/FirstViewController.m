@@ -109,14 +109,14 @@
             NSDate *dataFormatada = [format dateFromString:[new objectForKey:@"date"]];
             
             NSString *insertSQL = [NSString stringWithFormat:
-                                   @"INSERT INTO tbl_news (ID,position,  title, urlImage, date, content, urlWebSite)  VALUES (%d,%d,'%s','%s','%@','%s','%s')",
+                                   @"INSERT INTO tbl_news (ID,position,  title, urlImage, date, content, urlWebSite)  VALUES (%d,%d,'%@','%@','%@','%@','%@')",
                                    [[new objectForKey:@"id"] intValue],//int
                                    [[new objectForKey:@"position"] intValue],//int
-                                   [[[new objectForKey:@"title"] description] UTF8String],//varchar
-                                   [[[new objectForKey:@"urlImage"]description]UTF8String],//varchar
+                                   [[new objectForKey:@"title"] description],//varchar
+                                   [[new objectForKey:@"urlImage"]description],//varchar
                                    dataFormatada,//datetime
-                                   [[[new objectForKey:@"content"]description]UTF8String],//varchar
-                                   [[[new objectForKey:@"urlWebSite"]description]UTF8String]];//varchar
+                                   [[new objectForKey:@"content"]description],//varchar
+                                   [[new objectForKey:@"urlWebSite"]description]];//varchar
             
             const char *insert_stmt = [insertSQL UTF8String];
             sqlite3_prepare_v2(_newsDB, insert_stmt,
@@ -164,8 +164,8 @@
                     id value;
                     
                     if (colType == SQLITE_TEXT) {
-                        const unsigned char *col = sqlite3_column_text(statement, i);
-                        value = [NSString stringWithUTF8String:(char *)col];
+                        char *chars = (char*)sqlite3_column_text(statement, i);
+                        value = [NSString stringWithUTF8String:chars];
                     } else if (colType == SQLITE_INTEGER) {
                         int col = sqlite3_column_int(statement, i);
                         value = [NSNumber numberWithInt:col];

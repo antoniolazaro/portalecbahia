@@ -29,11 +29,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    [self configureView];
     self.tableViewDetail.dataSource = self;
     self.tableViewDetail.delegate = self;
     [self.tableViewDetail reloadData];
-    [self configureView];
-
 }
 
 - (void)didReceiveMemoryWarning
