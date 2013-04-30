@@ -7,6 +7,7 @@
 //
 
 #import "NewDetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface NewDetailViewController ()
 
@@ -104,10 +105,10 @@
 {
     if (self.detailItem) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSURL *url = [NSURL URLWithString:[detailItem objectForKey:@"urlImage"]];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [[UIImage alloc] initWithData:data];
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            
+            UIImageView *imageView = [[UIImageView alloc] init];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
+            [imageView setImageWithURL: [NSURL URLWithString:[detailItem objectForKey:@"urlImage"]]];
             
             CGSize itemSize;
             itemSize = CGSizeMake(200,300);

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
+
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *news;
 }

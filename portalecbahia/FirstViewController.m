@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "NewDetailViewController.h"
 #import "AFJSONRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface FirstViewController ()
 
@@ -259,14 +260,14 @@
         NSLog(@"%d",indexPath.row);
     
     
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         cell.detailTextLabel.text = [new objectForKey:@"title"];
         cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:12];
-        NSURL *url = [NSURL URLWithString:[new objectForKey:@"urlImage"]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [[UIImage alloc] initWithData:data];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [imageView setImageWithURL: [NSURL URLWithString:[new objectForKey:@"urlImage"]]];
         
         CGSize itemSize;
         if(indexPath.row != 0){
@@ -279,8 +280,7 @@
         [imageView.image drawInRect:imageRect];
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-       });
-//    }
+    });
     
     
     return cell;
@@ -299,6 +299,5 @@
 
     }
 }
-
 
 @end

@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiE-wk-lAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="513"/>
+            <point key="canvasLocation" x="689" y="1162"/>
         </scene>
         <!--Posicao View Controller-->
         <scene sceneID="JUu-ir-eua">
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1v3-VB-qfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="228"/>
+            <point key="canvasLocation" x="1232" y="435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -294,9 +294,6 @@
             <relationships>
                 <relationship kind="outlet" name="tableNews" candidateClass="UITableView"/>
             </relationships>
-        </class>
-        <class className="NSDictionary" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSDictionary.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "portalecbahia/FirstViewController.m"
-         timestampString = "388979152.358652"
+         timestampString = "388980950.550345"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-findNews"
          landmarkType = "5">
       </FileBreakpoint>
