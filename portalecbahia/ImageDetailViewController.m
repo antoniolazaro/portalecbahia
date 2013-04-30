@@ -33,6 +33,9 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [imageView setImageWithURL: [NSURL URLWithString:_imageNewDetailUrl]];
+    
+    _imageDetailFull.image = imageView.image;
+    
 }
 
 - (void)didReceiveMemoryWarning

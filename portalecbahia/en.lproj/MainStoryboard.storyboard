@@ -166,15 +166,23 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="294-Oe-UdW">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="455" id="nL6-iV-yyB"/>
+                                    <constraint firstAttribute="height" constant="376" id="pBd-o3-0Zk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="img_top_bar2.png" translatesAutoresizingMaskIntoConstraints="NO" id="z23-nx-Yxz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="7Hz-a3-K6L"/>
+                                    <constraint firstAttribute="width" constant="326" id="qzP-eN-DlJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="294-Oe-UdW" firstAttribute="top" secondItem="sO6-NI-W4t" secondAttribute="top" constant="-6" id="5FF-jj-Xsu"/>
-                            <constraint firstItem="294-Oe-UdW" firstAttribute="trailing" secondItem="sO6-NI-W4t" secondAttribute="trailing" type="default" id="8pc-ZK-9im"/>
-                            <constraint firstItem="294-Oe-UdW" firstAttribute="leading" secondItem="sO6-NI-W4t" secondAttribute="leading" type="default" id="Z67-0H-Z4n"/>
+                            <constraint firstItem="294-Oe-UdW" firstAttribute="trailing" secondItem="sO6-NI-W4t" secondAttribute="trailing" type="default" id="CTu-E3-C2P"/>
+                            <constraint firstItem="z23-nx-Yxz" firstAttribute="leading" secondItem="sO6-NI-W4t" secondAttribute="leading" type="default" id="KVo-sp-I4r"/>
+                            <constraint firstItem="z23-nx-Yxz" firstAttribute="top" secondItem="sO6-NI-W4t" secondAttribute="top" constant="-6" id="geH-rr-Yl2"/>
+                            <constraint firstItem="294-Oe-UdW" firstAttribute="leading" secondItem="sO6-NI-W4t" secondAttribute="leading" type="default" id="hIM-v0-KD2"/>
+                            <constraint firstItem="294-Oe-UdW" firstAttribute="bottom" secondItem="sO6-NI-W4t" secondAttribute="bottom" type="default" id="sjd-bD-efV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9JD-YK-GaL"/>
