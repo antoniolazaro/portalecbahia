@@ -130,8 +130,9 @@
                 NSLog(@"%s",sqlite3_errmsg(_newsDB));
                 NSLog(@"Codigo do erro ao adicionar noticia %d ",retornoOperacao);
             }
+            sqlite3_finalize(statement);
         }
-        sqlite3_finalize(statement);
+        
         sqlite3_close(_newsDB);
     }
 }
@@ -195,19 +196,27 @@
    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSData* data = [NSData dataWithContentsOfURL:
-                        [NSURL URLWithString: @"http://ec2-54-243-134-2.compute-1.amazonaws.com:8080/portalECBahia/FindAllNews"]];
+      //  Reachability *r = [Reachability reachabilityWithHostName:@"http://ec2-54-243-134-2.compute-1.amazonaws.com:8080/portalECBahia/FindAllNews"];
+        //NetworkStatus internetStatus = [r currentReachabilityStatus];
         
-        NSError* error;
+//        if ((internetStatus == ReachableViaWiFi) && (internetStatus == ReachableViaWWAN) ) {
         
-        NSDictionary *newsDicctionary = [NSJSONSerialization JSONObjectWithData:data
-                                                 options:kNilOptions
-                                                   error:&error];
-    
-        news = [newsDicctionary objectForKey:@"data"];
+            NSURL *url = [NSURL URLWithString: @"http://ec2-54-243-134-2.compute-1.amazonaws.com:8080/portalECBahia/FindAllNews"];
         
-        NSLog(@"@ vai salvar noticias que foram carregadas via JSON...");
-        [self saveNews];
+            NSData* data = [NSData dataWithContentsOfURL:url];
+            
+            NSError* error;
+            
+            NSDictionary *newsDicctionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:kNilOptions
+                                                                              error:&error];
+            
+            news = [newsDicctionary objectForKey:@"data"];
+            
+            NSLog(@"@ vai salvar noticias que foram carregadas via JSON...");
+            [self saveNews];
+        
+  //     }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableNews reloadData];

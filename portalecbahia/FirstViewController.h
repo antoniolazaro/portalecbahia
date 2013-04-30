@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#import "Reachability.h"
 
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
